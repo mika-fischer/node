@@ -743,7 +743,7 @@ void AppendMethodCall(Isolate* isolate, DirectHandle<CallSiteInfo> frame,
   Handle<Object> function_name = CallSiteInfo::GetFunctionName(frame);
 
   Handle<Object> receiver(frame->receiver_or_instance(), isolate);
-  if (IsJSClassConstructor(*receiver)) {
+  if (IsJSFunction(*receiver)) {
     Handle<JSFunction> function = Cast<JSFunction>(receiver);
     Handle<String> class_name = JSFunction::GetDebugName(function);
     if (class_name->length() != 0) {
